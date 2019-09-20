@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>new切换贴图108</title>
+		<link
+			href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="changeTex.css" />
+
+		<!-- <script src="https://threejs.org/build/three.min.js"></script>
+		<script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+		<script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+
+		<script src="https://threejs.org/examples/js/loaders/GLTFLoader.js"></script>
+		<script src="https://threejs.org/examples/js/loaders/DRACOLoader.js"></script>
+		<script src="https://threejs.org/examples/js/libs/draco/draco_decoder.js"></script>
+		<script src="https://threejs.org/examples/js/libs/draco/draco_encoder.js"></script>
+		<script src="https://threejs.org/examples/js/libs/draco/draco_wasm_wrapper.js"></script>
+
+		<script src="https://threejs.org/examples/js/loaders/RGBELoader.js"></script>
+		<script src="https://threejs.org/examples/js/loaders/EquirectangularToCubeGenerator.js"></script>
+		<script src="https://threejs.org/examples/js/pmrem/PMREMGenerator.js"></script>
+		<script src="https://threejs.org/examples/js/pmrem/PMREMCubeUVPacker.js"></script>
+
+		<script src="https://threejs.org/examples/js/shaders/CopyShader.js"></script>
+		<script src="https://threejs.org/examples/js/shaders/FXAAShader.js"></script>
+		<script src="https://threejs.org/examples/js/postprocessing/EffectComposer.js"></script>
+		<script src="https://threejs.org/examples/js/postprocessing/RenderPass.js"></script>
+		<script src="https://threejs.org/examples/js/postprocessing/ShaderPass.js"></script>
+		<script src="https://threejs.org/examples/js/postprocessing/OutlinePass.js"></script> -->
+
+		<!--
+		export glb command
+		E:\FBX\FBX2glTF-windows-x64.exe -v --no-flip-v -k uv0 -k uv1 -k position -k normal -k tangent -k color -k binormal -i E:\FBX\bedroom.FBX -o E:\FBX\bedroom -b -d --draco-bits-for-uv 16
+		/e/FBX/FBX2glTF-windows-x64.exe -v --no-flip-v -k uv0 -k uv1 -k position -k normal -k tangent -k color -k binormal -i /e/FBX/bedroom.FBX -o /e/FBX/bedroom -b -d --draco-bits-for-uv 16
+		--></head>
+
+	<body>
+		<div id="littleMenu" style="display: none">
+			<ul>
+				<li id="tex1">
+					<div class="overlay">
+						<div class="text">Brick</div>
+					</div>
+				</li>
+
+				<li id="tex2">
+					<div class="overlay">
+						<div class="text">Wood</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- <video
+			id="video"
+			autoplay
+			loop
+			crossOrigin="anonymous"
+			webkit-playsinline
+			style="display:none"
+		>
+			<source
+				src="textures/sintel.ogv"
+				type='video/ogg; codecs="theora, vorbis"'
+			/>
+			<source
+				src="textures/sintel.mp4"
+				type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+			/>
+		</video> -->
+
+		<nav id="nav">
+			<span>Choose:</span>
+			<input type="button" value="Wood" id="wood" />
+			<input type="button" value="Night" id="night" />
+		</nav>
+
+		<section id="loading-screen">
+			<div id="loader"></div>
+		</section>
+
+		<script type="module" src="dynamic.js"></script>
+	</body>
+</html>

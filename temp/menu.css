@@ -1,0 +1,280 @@
+/* -------------------------------------------------------------------------- */
+/*                               NOTE variables                               */
+/* -------------------------------------------------------------------------- */
+:root {
+  --tex1: url("textures/brick_diffuse.jpg");
+  --tex2: url("textures/hardwood2_diffuse.jpg");
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  NOTE root                                 */
+/* -------------------------------------------------------------------------- */
+canvas {
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                          NOTE mini top right menu                          */
+/* -------------------------------------------------------------------------- */
+nav ul li {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+nav ul li:hover {
+  color: tomato;
+  cursor: pointer;
+}
+
+#menuToggle {
+  display: block;
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #fff;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu {
+  position: absolute;
+  width: 150px;
+  border-radius: 0 0 0 80px;
+  margin: -100px 0 0 0;
+  padding: 50px;
+  padding-top: 110px;
+  right: -150px;
+
+  background: rgba(255, 255, 255, 0.3);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             NOTE loading screen                            */
+/* -------------------------------------------------------------------------- */
+#loading-screen {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+#loading-screen.fade-out {
+  opacity: 0;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #9370db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ba55d3;
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #ff00ff;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                       NOTE pop up menu Change Texture                      */
+/* -------------------------------------------------------------------------- */
+#littleMenu {
+  display: block;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#littleMenu ul li {
+  position: relative;
+  border-radius: 15px;
+  display: inline-block;
+  height: 10em;
+  width: 10em;
+  transition: opacity 0.3s ease;
+  border: 2px solid rgb(180, 180, 180);
+  box-sizing: border-box;
+  margin-left: 5em;
+  cursor: pointer;
+}
+
+#tex1 {
+  background-image: var(--tex1);
+}
+
+#tex2 {
+  background-image: var(--tex2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #b4b4b475;
+}
+
+.overlay:hover {
+  opacity: 1;
+}
+
+.text {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}

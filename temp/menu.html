@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Menu</title>
+		<link rel="stylesheet" href="menu.css" />
+	</head>
+	<body>
+		<section id="loading-screen">
+			<div id="loader"></div>
+		</section>
+
+		<nav role="navigation">
+			<div id="menuToggle">
+				<input type="checkbox" />
+				<span></span>
+				<span></span>
+				<span></span>
+				<ul id="menu">
+					<li id="day">Day</li>
+					<li id="night">Night</li>
+					<!-- <a href="https://erikterwan.com/" target="_blank"><li>More</li></a> -->
+				</ul>
+			</div>
+		</nav>
+
+		<div id="littleMenu" style="display: none">
+			<ul>
+				<li id="tex1">
+					<div class="overlay">
+						<div class="text">Brick</div>
+					</div>
+				</li>
+
+				<li id="tex2">
+					<div class="overlay">
+						<div class="text">Wood</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<script type="module" src="menu.js"></script>
+	</body>
+</html>
